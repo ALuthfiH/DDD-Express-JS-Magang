@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Job.belongsToMany(models.Candidate, { through: models.CandidateJob, foreignKey: 'jobId', as: 'candidates' })
+      // models.Job.belongsToMany(models.Candidate, { through: models.CandidateJob, foreignKey: 'jobId', as: 'candidates' })
     }
   }
   Job.init({

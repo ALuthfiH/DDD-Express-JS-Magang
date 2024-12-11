@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.Candidate.belongsTo(models.User, { foreignKeys: 'userId', as: 'user' })
       models.Candidate.hasOne(models.Score, { foreignKey: 'candidateId', as: 'candidate' })
-      models.Candidate.belongsToMany(models.Job, { through: models.CandidateJob, foreignKey: 'candidateId', as : 'jobs' })
+      // models.Candidate.belongsToMany(models.Job, { through: models.CandidateJob, foreignKey: 'candidateId', as : 'jobs' })
     }
   }
   Candidate.init({
