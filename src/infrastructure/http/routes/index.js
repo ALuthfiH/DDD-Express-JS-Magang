@@ -3,6 +3,7 @@ var router = express.Router();
 const { userRegister, userLogin, userRegisterCreate, userLoginCreate } = require("../controllers/authController");
 const { validationLogin, validationRegister } = require("../middlewares/validation");
 const { isAuthenticated } = require("../middlewares/auth");
+const UserController = require("../controllers/UserController");
 
 /* GET home page. */
 router.get("/", isAuthenticated, function (req, res, next) {
@@ -10,8 +11,8 @@ router.get("/", isAuthenticated, function (req, res, next) {
 });
 
 /* Register*/
-router.get("/register", userRegister);
-router.post("/register", validationRegister, userRegisterCreate);
+router.get("/register", UserController.registerPage);
+router.post("/register", validationRegister, UserController.register);
 
 // Login
 router.get("/login", userLogin);
