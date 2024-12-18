@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next) {
 
 // Middleware untuk otorisasi admin
 function isAdmin(req, res, next) {
-  if (req.session.user && req.session.user.role === "admin") {
+  if (req.session.user && req.session.user.isAdmin === true) {
     return next();
   }
   res.status(403).send("Forbidden: You do not have access to this resource");

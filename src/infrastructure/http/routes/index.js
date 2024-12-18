@@ -15,7 +15,15 @@ router.get("/register", UserController.registerPage);
 router.post("/register", validationRegister, UserController.register);
 
 // Login
-router.get("/login", userLogin);
-router.post("/login", validationLogin, userLoginCreate);
+router.get("/login", UserController.loginPage);
+router.post("/login", validationLogin, UserController.login);
+
+//logout
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/login');
+});
+
+// job
 
 module.exports = router;

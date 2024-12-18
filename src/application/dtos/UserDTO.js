@@ -22,6 +22,30 @@ class UserDTO {
       password: data.password,
     };
   }
+
+  static toLoginDTO(user) {
+    if (!user) {
+      throw new Error("Data user tidak boleh kosong.");
+    }
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    };
+  }
+
+  static fromLoginDTO(data) {
+    if (!data.email || !data.password) {
+      throw new Error("Semua properti email dan password harus diisi.");
+    }
+
+    return {
+      email: data.email,
+      password: data.password,
+    };
+  }
 }
 
 module.exports = UserDTO;
