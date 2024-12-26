@@ -12,12 +12,13 @@ var jobsRouter = require('./routes/jobs');
 const logger = require('../logger/logger');
 
 var app = express();
+app.locals.baseUrl = '/';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(morgan);
+// app.use(morgan);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -28,6 +29,12 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+app.use((req, res, next) => {
+  res.locals.modal = req.query.modal || false;
+  res.locals.message = req.query.message || "";
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
