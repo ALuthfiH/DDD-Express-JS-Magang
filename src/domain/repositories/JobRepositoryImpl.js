@@ -29,6 +29,10 @@ class JobRepositoryImpl extends JobRepository {
     const jobRecord = await JobModel.destroy({ where: { id }});
     return new Job(jobRecord);
   }
+
+    async count() {
+      return await JobModel.count();
+    }
 }
 
 module.exports = JobRepositoryImpl;

@@ -1,0 +1,74 @@
+<footer class="footer footer-transparent d-print-none">
+    <div class="container-xl">
+      <div class="row text-center align-items-center flex-row-reverse">
+        <div class="col-lg-auto ms-lg-auto">
+          <!-- code here -->
+        </div>
+        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+          <ul class="list-inline list-inline-dots mb-0">
+            <li class="list-inline-item">
+              Copyright &copy; 2024
+              <a href="." class="link-secondary">PT. Otak Kanan</a>.
+              All rights reserved.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+  </div>
+  <!-- Libs JS -->
+  <script src="<%= baseUrl %>dist/libs/tinymce/tinymce.min.js?1692870487" defer></script>
+  
+  <!-- Tabler Core -->
+  <script src="<%= baseUrl %>dist/js/tabler.min.js?1692870487" defer></script>
+  <script src="<%= baseUrl %>dist/js/demo.min.js?1692870487" defer></script>
+  
+  <% if (typeof dataTables !== 'undefined' && dataTables.status) { %>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
+  <!-- Inisialisasi DataTables -->
+  <script>
+    $(document).ready(function() {
+      $("<%= dataTables.name %>").DataTable({
+        responsive: true,
+      });
+    });
+  </script>
+  <% } %>
+  
+  <!-- TinyMCE -->
+  <script>
+    // @formatter:off
+    document.addEventListener("DOMContentLoaded", function() {
+      let options = {
+        selector: '#tinymce-mytextarea',
+        height: 300,
+        menubar: false,
+        statusbar: false,
+        plugins: [
+          'advlist autolink lists link image charmap print preview anchor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+          'bold italic backcolor | alignleft aligncenter ' +
+          'alignright alignjustify | bullist numlist outdent indent | ' +
+          'removeformat',
+        content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }'
+      }
+      if (localStorage.getItem("tablerTheme") === 'dark') {
+        options.skin = 'oxide-dark';
+        options.content_css = 'dark';
+      }
+      tinyMCE.init(options);
+    })
+    // @formatter:on
+  </script>
+  </body>
+  
+  </html>

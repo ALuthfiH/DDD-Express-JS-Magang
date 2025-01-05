@@ -4,11 +4,10 @@ const { userRegister, userLogin, userRegisterCreate, userLoginCreate } = require
 const { validationLogin, validationRegister } = require("../middlewares/validation");
 const { isAuthenticated } = require("../middlewares/auth");
 const UserController = require("../controllers/UserController");
+const dashboardController = require("../controllers/dashboardController");
 
 /* GET home page. */
-router.get("/", isAuthenticated, function (req, res, next) {
-  res.render("index");
-});
+router.get("/", isAuthenticated, dashboardController.index);
 
 /* Register*/
 router.get("/register", UserController.registerPage);

@@ -18,6 +18,10 @@ class JobRepository {
     async deleteById(id) {
         throw new Error("Metode deleteById() harus diimplementasikan.");
     }
+
+    async count() {
+      throw new Error("Metode count() harus diimplmenetasikan.");
+    }
   }
   
   module.exports = JobRepository;

@@ -1,0 +1,39 @@
+<!-- Page header -->
+<div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="page-pretitle">Overview</div>
+          <h2 class="page-title">Lowongan Pekerjaan</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-deck row-cards">
+        <div class="row row-cards mt-2">
+          <% if (jobs.length > 0) { %> <% jobs.forEach(function(job) { %>
+          <div class="col-md-6 col-lg-3">
+            <div class="card">
+              <!-- Photo -->
+              <div class="img-responsive img-responsive-21x9 card-img-top" style="
+                      background-image: url(https://cdn.prod.website-files.com/6100d0111a4ed76bc1b9fd54/64664e9cd07202af8bcdc5e4_5757453.jpg);
+                    "></div>
+              <div class="card-body">
+                <h3 class="card-title"><%= job.title %></h3>
+                <p class="text-secondary"><%= job.location %></p>
+                <div class="mt-2">
+                  <a href="/jobs/apply/detail/<%= job.id %>" class="btn btn-primary w-100">Lihat Detail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% })} %>
+        </div>
+      </div>
+    </div>
+  </div>

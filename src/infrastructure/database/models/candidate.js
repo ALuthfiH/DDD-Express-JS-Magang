@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     curriculumVitae: DataTypes.STRING,
     portofolio: DataTypes.STRING,
     workExperience: DataTypes.STRING,
-    passFile: DataTypes.STRING,
+    passFile: DataTypes.BOOLEAN,
     isEvaluation: DataTypes.BOOLEAN
   }, {
     sequelize,

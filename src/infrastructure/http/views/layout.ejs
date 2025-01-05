@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+
+<script src="<%= baseUrl %>dist/js/demo-theme.min.js?1692870487"></script>
+<div class="page">
+  <!-- Sidebar -->
+  <%- include('partials/sidebar') %>
+  <!-- Navbar -->
+  <%- include('partials/navbar') %>
+  <!-- Main Content -->
+  <div class="page-wrapper">
+    <!-- Main Content -->
+    <%- include(view) %> <!-- Dynamically include view -->
+    <%- include('partials/footer') %>

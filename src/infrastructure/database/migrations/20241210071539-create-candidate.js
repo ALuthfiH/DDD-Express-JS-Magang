@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      usedId: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -48,8 +48,9 @@ module.exports = {
         allowNull: false
       },
       passFile: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       isEvaluation: {
         type: Sequelize.BOOLEAN,

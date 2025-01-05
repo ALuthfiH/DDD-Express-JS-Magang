@@ -25,6 +25,10 @@ class UserRepositoryImpl extends UserRepository {
       isAdmin: userRecord.isAdmin,
     });
   }
+
+  async count() {
+    return await UserModel.count();
+  }
 }
 
 module.exports = UserRepositoryImpl;
