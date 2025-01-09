@@ -1,0 +1,64 @@
+  <!-- Page header -->
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="page-pretitle">Overview</div>
+          <h2 class="page-title">Data Kandidat</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-deck row-cards">
+        <div class="col-12 mt-3">
+          <div class="card">
+            <div class="table-responsive table-container" style="padding: 5px; padding-top: 10px; padding-bottom: 10px">
+              <table id="candidates" class="table table-striped nowrap" style="width: 100%">
+                <thead>
+                  <tr>
+                    <th>Nama</th>
+                    <th>Jurusan</th>
+                    <th>Lowongan</th>
+                    <th>Alamat</th>
+                    <th>No WA</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% candidates.forEach(candidate => { %>
+                  <tr>
+                    <td><%= candidate.user.name %></td>
+                    <td><%= candidate.major%></td>
+                    <td><%= candidate.jobs[0].title%></td>
+                    <td><%= candidate.address %></td>
+                    <td><%= candidate.noWhatsapp %></td>
+                    <td>
+                      <% if (candidate.isEvaluation === false) { %>
+                        <span class="status status-red">
+                          Belum dinilai
+                        </span>
+                        <% } else { %>
+                        <span class="status status-green">
+                          Sudah dinilai
+                        </span>
+                        <% } %>
+                    </td>
+                    <td>
+                      <a class="btn btn-primary btn-sm mr-2" href="/candidates/<%= candidate.id %>">Lihat Detail</a>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

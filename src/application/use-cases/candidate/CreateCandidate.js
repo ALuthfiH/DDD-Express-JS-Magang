@@ -6,7 +6,6 @@ class CreateCandidate {
     }
 
     async execute(jobId, candidateData) {
-        console.log(jobId, candidateData);
         const candidateDomainData = CandidateDTO.fromDTO(candidateData);
         const candidate = await this.candidateRepository.save(jobId, candidateDomainData);
 

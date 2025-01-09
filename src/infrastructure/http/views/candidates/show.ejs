@@ -1,0 +1,103 @@
+  <!-- Page header -->
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row g-2 align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="page-pretitle">Overview</div>
+          <h2 class="page-title">Detail Kandidat</h2>
+        </div>
+        <!-- Page title actions -->
+        <div class="col-auto ms-auto d-print-none">
+          <div class="btn-list">
+            <a href="/candidates/evaluation/<%= candidate.id %>" class="btn btn-primary d-none d-sm-inline-block">
+              <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 5l0 14" />
+                <path d="M5 12l14 0" />
+              </svg>
+              Berikan Penilaian
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Biodata</h3>
+        </div>
+        <div class="card-body">
+          <div class="datagrid">
+            <div class="datagrid-item">
+              <div class="datagrid-title">Nama</div>
+              <div class="datagrid-content"><%= candidate.user.name %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Jurusan</div>
+              <div class="datagrid-content"><%= candidate.major %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Lowongan Kerja</div>
+              <div class="datagrid-content"><%= candidate.jobs[0].title %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Jenis Kelamin</div>
+              <div class="datagrid-content"><% if (candidate.gender === 'male') { %>
+                Laki-laki
+                <% } else { %>
+                Perempuan
+                <% } %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">No WhatsApp</div>
+              <div class="datagrid-content"><%= candidate.noWhatsapp %></div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Curriculum Vitae</div>
+              <div class="datagrid-content">
+                <a href="<%= candidate.curriculumVitae %>" target="_blank" rel="noopener noreferrer">Lihat Curriculum Vitae</a>
+              </div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Portofolio</div>
+              <div class="datagrid-content">
+                <a href="<%= candidate.portofolio %>" target="_blank" rel="noopener noreferrer">Lihat Portofolio</a>
+              </div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Penilaian</div>
+              <div class="datagrid-content">
+                <% if (candidate.isEvaluation === false) { %>
+                <span class="status status-red">
+                  Belum dinilai
+                </span>
+                <% } else { %>
+                <span class="status status-green">
+                  Sudah dinilai
+                </span>
+                <% } %>
+              </div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Alamat</div>
+              <div class="datagrid-content">
+                <%= candidate.address %>
+              </div>
+            </div>
+            <div class="datagrid-item">
+              <div class="datagrid-title">Pengalaman Kerja</div>
+              <div class="datagrid-content">
+                <%= candidate.workExperience %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
